@@ -84,10 +84,13 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 88f2ac18ae0c71845bc1d47bd924f8a8, type: 3}
   - {fileID: 21300000, guid: dcc9002875a3a244eacb72418d292f8e, type: 3}
   - {fileID: 21300000, guid: 2eaa4938329e1204ca267982a8cdb3fa, type: 3}
+  - {fileID: 21300000, guid: a9c37448b62c0d149aced6ded9e44e4a, type: 3}
+  - {fileID: 21300000, guid: b5b9f448600b9aa4daa1d9fd5069a764, type: 3}
   - {fileID: 21300000, guid: 3a5b7c781691c8642af63e9c1e6c14de, type: 3}
   - {fileID: 21300000, guid: 690102d87edd7d047824362d73a02788, type: 3}
   - {fileID: 21300000, guid: 76089009971280441963c2a3a55b5071, type: 3}
   - {fileID: 21300000, guid: 4214a14962bcf4943baf9e184b9b928e, type: 3}
+  - {fileID: 21300000, guid: a9e9e74909b5a0947a093069d6a017cc, type: 3}
   - {fileID: 21300000, guid: 13aa9a4a1bc68064c9e5e17a86df2666, type: 3}
   - {fileID: 21300000, guid: d2d936bae69c599429ee1a386892a9f0, type: 3}
   - {fileID: 21300000, guid: 64afd51ca9828034f8c64a261e4b99b9, type: 3}
@@ -99,8 +102,10 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 60a2cfad92429cc4b9d2f6ce7148c37a, type: 3}
   - {fileID: 21300000, guid: c7cf710ee57c1ae45aac513a85fcff07, type: 3}
   - {fileID: 21300000, guid: 5b31577ecf5954448b0d92a2c8a0501b, type: 3}
+  - {fileID: 21300000, guid: 5a1cef7e9c9ed034da742d0e08ea786a, type: 3}
   - {fileID: 21300000, guid: af68c0be2e67f3846bcdf33841f8312b, type: 3}
   - {fileID: 21300000, guid: eb350ede4895d6d418689eb126b772cb, type: 3}
+  - {fileID: 21300000, guid: 7d37e1dfeba60ea4a8803c12675079b6, type: 3}
   - {fileID: 21300000, guid: 3b3834ff0aab3d849bca2adc0c0d5f84, type: 3}
   m_PackedSpriteNamesToIndex:
   - Anim_JUMP_02
@@ -141,10 +146,13 @@ SpriteAtlas:
   - ELLEN_RUN_NoGun_21
   - Anim_IDLE_00015
   - ELLEN_RUN_NoGun_07
+  - Anim_CROUCH_00005
+  - Anim_CROUCH_00011
   - ELLEN_RUN_NoGun_04
   - ELLEN_RUN_NoGun_17
   - Anim_IDLE_00019
   - Anim_JUMP_05
+  - Anim_CROUCH_00009
   - Anim_JUMP_15
   - Anim_IDLE_00025
   - Anim_IDLE_00017
@@ -156,8 +164,10 @@ SpriteAtlas:
   - Anim_IDLE_00013
   - Anim_IDLE_00005
   - Anim_JUMP_14
+  - Anim_CROUCH_00003
   - Anim_JUMP_07
   - ELLEN_RUN_NoGun_15
+  - Anim_CROUCH_00007
   - ELLEN_RUN_NoGun_19
   m_Tag: EllenAtlas
   m_IsVariant: 0

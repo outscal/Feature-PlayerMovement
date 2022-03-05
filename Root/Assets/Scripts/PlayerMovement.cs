@@ -3,24 +3,30 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField]
-    Animator player_animator;
-    [SerializeField]
-    Rigidbody2D player_Rb;
+    [SerializeField] private Animator player_animator;
+    [SerializeField] private Rigidbody2D player_Rb;
+    [SerializeField] private Text countDownText;
+    [SerializeField] private GameObject powerUpObject;
+    private BoxCollider2D boxcollider2d;
 
-    float runspeed = 5.0f;
-    [SerializeField]
-    bool onGround;
+    private float runspeed = 5.0f;
+    private bool onGround;
     private int extraJump = 0;
     private bool isPickUp;
     private float currentTime;
     private bool finishTimer = true;
-    [SerializeField] public Text countDownText;
-    public GameObject powerUpObject;
+    private bool crouch=false;
+
+    [SerializeField] private float crouchOffSetx, crouchOffSety;
+    [SerializeField] private float crouchSizex, crouchSizey;
+    [SerializeField] private float offsetx, offsety;
+    [SerializeField] private float sizex, sizey;
+
 
     private void Awake()
     {
         player_Rb = gameObject.GetComponent<Rigidbody2D>();
+        boxcollider2d = gameObject.GetComponent<BoxCollider2D>();
         countDownText.gameObject.SetActive(false);
     }
 
@@ -32,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
             onGround = true;
         }
     }
+
+
 
     private void OnCollisionExit2D(Collision2D collision)
     {
@@ -50,6 +58,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+
+
     private void PickUp()
     {
         isPickUp = true;
@@ -58,6 +68,8 @@ public class PlayerMovement : MonoBehaviour
         Destroy(powerUpObject.gameObject);
         currentTime = 10f;
     }
+
+
 
     void Update()
     {
@@ -89,15 +101,46 @@ public class PlayerMovement : MonoBehaviour
             isPickUp = false;
         }
 
-        Player_Movement(horizontal);
-        Player_Run(horizontal);
+
+
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            IdleToCrouchAnimation();
+        }
+        else
+        {
+            CrouchToIdleAnimation();
+        }
+
+        if (crouch == false)
+        {
+            Player_Movement(horizontal);
+            Player_Run(horizontal);
+        }
     }
 
+
+    private void IdleToCrouchAnimation()
+    {
+        //crouch animation
+        crouch = true;
+        player_animator.SetBool("IsCrouch", true);
+        boxcollider2d.offset = new Vector2(crouchOffSetx, crouchOffSety);
+        boxcollider2d.size = new Vector2(crouchSizex, crouchSizey);
+      
+    }
+
+    private void CrouchToIdleAnimation()
+    {
+        player_animator.SetBool("IsCrouch", false);
+        boxcollider2d.offset = new Vector2(offsetx, offsety);
+        boxcollider2d.size = new Vector2(sizex, sizey);
+        crouch = false;
+    }
 
 
     void Player_Jump(bool vertical)
     {
-
         if ((vertical) && (isPickUp != true) && (onGround == true))
         {
             player_animator.SetBool("IsJump", true);
@@ -108,6 +151,9 @@ public class PlayerMovement : MonoBehaviour
             player_animator.SetBool("IsJump", false);
         }
     }
+
+
+
     private void PlayerDoubleJump(bool vertical)
     {
         if (onGround == true)
@@ -134,6 +180,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+
+
     void Player_Movement(float horizontal)
     {
         player_animator.SetFloat("Speed", Mathf.Abs(horizontal));
@@ -150,6 +198,8 @@ public class PlayerMovement : MonoBehaviour
         }
         transform.localScale = scale;
     }
+
+
 
     void Player_Run(float horizontal)
     {
